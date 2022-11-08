@@ -74,22 +74,6 @@ USER lobsters
 # Set our working directory.
 WORKDIR /lobsters/
 
-# Build arguments.
-ARG VCS_REF
-ARG BUILD_DATE
-ARG VERSION
-
-# Labels / Metadata.
-LABEL \
-    org.opencontainers.image.authors="James Brink <brink.james@gmail.com>" \
-    org.opencontainers.image.created="${BUILD_DATE}" \
-    org.opencontainers.image.description="Lobsters Rails Project" \
-    org.opencontainers.image.revision="${VCS_REF}" \
-    org.opencontainers.image.source="https://github.com/utensils/docker-lobsters" \
-    org.opencontainers.image.title="lobsters" \
-    org.opencontainers.image.vendor="Utensils" \
-    org.opencontainers.image.version="${VERSION}"
-
 # Set environment variables.
 ENV MARIADB_HOST="mariadb" \
     MARIADB_PORT="3306" \
