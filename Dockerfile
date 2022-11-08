@@ -13,12 +13,12 @@ RUN set -xe; \
 RUN set -xe; \
     chown -R lobsters:lobsters /lobsters; \
     apk add --no-cache --update --virtual .runtime-deps \
-        mariadb-connector-c \
-        bash \
-        nodejs \
-        npm \
-        sqlite-libs \
-        tzdata;
+    mariadb-connector-c \
+    bash \
+    nodejs \
+    npm \
+    sqlite-libs \
+    tzdata;
 
 # Change shell to bash
 SHELL ["/bin/bash", "-c"]
@@ -30,15 +30,15 @@ COPY --chown=lobsters:lobsters ./lobsters/Gemfile ./lobsters/Gemfile.lock /lobst
 ARG DEVELOPER_BUILD=false
 RUN set -xe; \
     apk add --no-cache --virtual .build-deps \
-        build-base \
-        curl \
-        gcc \
-        git \
-        gnupg \
-        linux-headers \
-        mariadb-connector-c-dev \
-        mariadb-dev \
-        sqlite-dev; \
+    build-base \
+    curl \
+    gcc \
+    git \
+    gnupg \
+    linux-headers \
+    mariadb-connector-c-dev \
+    mariadb-dev \
+    sqlite-dev; \
     export PATH=/lobsters/.gem/ruby/2.7.0/bin:$PATH; \
     export SUPATH=$PATH; \
     export GEM_HOME="/lobsters/.gem"; \

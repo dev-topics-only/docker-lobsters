@@ -1,4 +1,4 @@
 [submodule "lobsters"]
 	path = lobsters
-	url = https://github.com/lobsters/lobsters.git
-	branch = master
+	url = https://github.com/dev-topics-only/lobsters
+	branch = dto
