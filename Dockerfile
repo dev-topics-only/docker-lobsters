@@ -46,14 +46,17 @@ RUN set -xe; \
     export BUNDLE_PATH="/lobsters/.bundle"; \
     cd /lobsters; \
     su lobsters -c "gem install bundler --user-install"; \
-    su lobsters -c "gem update"; \
-    su lobsters -c "gem install rake -v 13.0.1"; \
-    su lobsters -c "bundle config set no-cach 'true'"; \
+    su lobsters -c "gem update bundler"; \
+    su lobsters -c "bundle config set no-cache 'true'"; \
     su lobsters -c "bundle install"; \
     if [ "${DEVELOPER_BUILD,,}" != "true" ]; \
     then \
         apk del .build-deps; \
     fi; \
+    rm -rf /lobsters/.bundle/cache/; \
+    rm -rf /lobsters/.bundle/ruby/2.7.0/cache/; \
+    rm -rf /lobsters/.gem/cache/; \
+    rm -rf /lobsters/.gem/ruby/2.7.0/cache/; \
     mv /lobsters/Gemfile /lobsters/Gemfile.bak; \
     mv /lobsters/Gemfile.lock /lobsters/Gemfile.lock.bak;
 
