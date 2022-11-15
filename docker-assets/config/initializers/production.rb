@@ -9,3 +9,4 @@ class << Rails.application
 end
 
 Rails.application.routes.default_url_options[:host] = Rails.application.domain
+Rails.application.config.hosts << Rails.application.domain
